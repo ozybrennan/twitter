@@ -12,7 +12,7 @@ $.InfiniteTweets.prototype.fetchTweets = function () {
     data["max_created_at"] = this.maxCreatedAt;
   }
   $.ajax({
-    url: "/feed",
+    url: "/feed.json",
     type: 'GET',
     dataType: 'json',
     data: data,

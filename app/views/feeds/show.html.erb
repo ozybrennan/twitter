@@ -7,11 +7,15 @@
   <a href="javascript:void(0)" class="fetch-more">Fetch More</a>
   <script type="text/template" id="feed-template">
     <%% tweets.forEach(function (tweet) { %>
-     <li> <%%= tweet.user.username %> : <%%= tweet.content %>
+     <li> <a href="/users/<%%= tweet.user.id %>">
+       <%%= tweet.user.username %>
+       </a>
+       : <%%= tweet.content %>
        | <%% tweet.mentions.forEach(function (mention) {%>
-         <%%= mention.user.username %>
+         <a href="/users/<%%= mention.user.id%>">
+         <%%= mention.user.username %></a>
          <%% }) %>
-      | <%%= tweet.created_at %> </li>
+         <%%= moment(tweet.created_at).fromNow() %> </li>
     <%%  }); %>
   </script>
 </div>

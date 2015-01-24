@@ -23,12 +23,14 @@ $.UsersSearch.prototype.renderResults = function (users) {
   this.$ul.html("");
   for (var i = 0; i < users.length; i++) {
     var $li = $("<li>");
+    var $link = $("<a>").attr("href", "/users/" + users[i].id)
+    $link.text(users[i].username)
     var $button = $("<button>");
     $button.followToggle({
       userId: users[i].id,
       followState: users[i].followed
     });
-    $li.append(users[i].username).append($button);
+    $li.append($link).append($button);
     this.$ul.append($li);
   };
 };
